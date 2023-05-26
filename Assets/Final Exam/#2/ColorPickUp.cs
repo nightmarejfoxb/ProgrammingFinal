@@ -14,10 +14,25 @@ using UnityEngine;
  */
 
 
-public class ColorPickUp : MonoBehaviour
+public class ColorPickUp : PickUp
 {
     public Sprite newCarColorSprite;
+    public GameObject Car;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
-
+    public override void Activate()
+    {
+       
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            animator.SetTrigger("red");
+        }
+     
+    }
 
 }

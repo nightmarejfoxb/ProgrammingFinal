@@ -9,8 +9,11 @@ public class Car : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sr;
 
-    private float verticalInput;
-    private float horizontalInput;
+    
+    private float hinput;
+    private Vector2 movement;
+
+
 
 
     // Start is called before the first frame update
@@ -31,5 +34,12 @@ public class Car : MonoBehaviour
          * The Horizontal Axis should make the player rotate on the Vector3.back axis
          */
 
+        movement.y = Input.GetAxis("Vertical");
+        hinput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime * movement);
+        transform.Rotate(Vector3.back * turnSpeed * Time.deltaTime * hinput);
+
+
     }
+
 }
